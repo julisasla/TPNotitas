@@ -21,7 +21,10 @@ public class Tarea {
 	private String descripcion;
 	
 	private String nombre;
-
+	
+	public Tarea() {
+		super();
+	}
 	public Tarea(String nombre, String descripcion) {
 		this.descripcion = descripcion;
 		this.nombre = nombre;

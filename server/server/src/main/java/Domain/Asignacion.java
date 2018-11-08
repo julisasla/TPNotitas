@@ -28,7 +28,9 @@ public class Asignacion {
 	@JsonIgnore
 	private Tarea tarea;
 	
-
+	public Asignacion() {
+		super();
+	}
 
 	@ElementCollection
 	@JsonProperty("grades")
