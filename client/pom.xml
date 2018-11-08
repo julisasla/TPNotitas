@@ -3,7 +3,7 @@
 
    <modelVersion>4.0.0</modelVersion>
    <groupId>dds-templates</groupId>
-   <artifactId>arena-proof-of-concept-template</artifactId>
+   <artifactId>client</artifactId>
    <version>0.0.1-SNAPSHOT</version>
 
   <repositories>
