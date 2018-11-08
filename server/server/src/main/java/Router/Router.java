@@ -33,12 +33,12 @@ public class Router implements TransactionalOps, WithGlobalEntityManager {
 			
 			try {
 				Long userId = securityService.user(req.headers("Authorization").replace("Bearer ", ""));
-				req.session().attribute("userIdSession", userId);
+				req.session().attribute("Estudiante", userId);
 			} catch (InvalidTokenException e) {
 				if (req.requestMethod() != "GET") {
 					rollbackTransaction();
 				}
-				Spark.halt(401, "<h1><a href='https://www.youtube.com/watch?v=0Jx8Eay5fWQ'>Hack me </a></h1><br/><br/><br/><a href='https://www.youtube.com/watch?v=PtLmEARfStE'> El aleph </a>");
+				Spark.halt(401, "<h1>Hiciste algo mal en el request</a>");
 			}
 		});
 		
