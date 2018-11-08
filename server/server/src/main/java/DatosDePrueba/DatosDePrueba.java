@@ -1,7 +1,6 @@
 package DatosDePrueba;
 
 import java.util.Arrays;
-import java.util.Date;
 
 import javax.persistence.EntityManager;
 
@@ -15,16 +14,16 @@ import Domain.Tarea;
 import Security.SecurityService;
 
 public class DatosDePrueba implements TransactionalOps, WithGlobalEntityManager{
-	public void init() {
+	public void cargarDatos() {
 		EntityManager em = entityManager();
 		
 		Estudiante Estudiante = new Estudiante ("159391-2", "Julian", "Saslavsky", "julisasla");
-//		Asignacion dds = new Asignacion("DDS",new Tarea("Tp Arena", "Este es un TP importante"));	
-//		dds.setNotas(Arrays.asList("4", "10"));
+		Asignacion am2 = new Asignacion("am2",new Tarea("Primer parcial", "Este es un primer parcial"));	
+		am2.setNotas(Arrays.asList("5", "8"));
 		withTransaction(() -> {
-//			em.persist(dds);
+			em.persist(am2);
+			Estudiante.setAsignacion(am2);
 			em.persist(Estudiante);
-//			Estudiante.setAsignacion(dds);
 			
 			System.out.println(new SecurityService().generateTokenFor(Estudiante.getId()));
 		});

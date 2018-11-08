@@ -3,6 +3,7 @@ package Domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class Asignacion {
 	@JsonIgnore
 	private Long id;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL) //no se si está bien modeado esto pero bueno... ahi ta
 	@JsonIgnore
 	private Tarea tarea;
 	

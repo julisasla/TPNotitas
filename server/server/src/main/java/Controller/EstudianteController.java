@@ -20,14 +20,14 @@ public class EstudianteController {
 		Estudiante alumno = RepoEstudiante.getInstance().obtenerEstudiante(id);
 		
 		if (alumno == null) {
-			Spark.halt(401, "Me mandaste cualquier cosaa, no te hagas el gil");
+			Spark.halt(401, "No es un alumno valido");
 		}
 		
 		return alumno;		
 	}
 	
 	private static long sesionEstudiante(Request req) {
-		return req.session().attribute(idSession);
+		return req.session().attribute(idSession); //Aca pedias la session Estudiante
 	}
 
 	public static String getAsignaciones(Request req, Response res) {
@@ -42,12 +42,12 @@ public class EstudianteController {
 		return Parser.serializar(estudiante);
 	}
 	
-	public static Route modificarEstudiante(Request req, Response res) {
+	public static String modificarEstudiante(Request req, Response res) {
 		Estudiante estudianteActual = obtenerEstudianteSiExiste(sesionEstudiante(req));		
 		Estudiante estudianteNuevo = Parser.deserializarEstudiante(req.body());
 		
 		estudianteActual.modificarEstudiante(estudianteNuevo);
-		return null;
+		return "ok";
 	}
 
 }

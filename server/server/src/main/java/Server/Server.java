@@ -7,7 +7,7 @@ import Router.Router;
 
 public class Server {
 	public static void main(String[] args) {
-		new DatosDePrueba().init();
+		new DatosDePrueba().cargarDatos();
 		Spark.port(9000);
 		DebugScreen.enableDebugScreen();
 		new Router().configure();

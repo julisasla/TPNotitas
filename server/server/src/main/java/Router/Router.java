@@ -33,7 +33,7 @@ public class Router implements TransactionalOps, WithGlobalEntityManager {
 			
 			try {
 				Long userId = securityService.user(req.headers("Authorization").replace("Bearer ", ""));
-				req.session().attribute("Estudiante", userId);
+				req.session().attribute("Estudiante", userId); //aca estabas creando la session "IdEstudiante"
 			} catch (InvalidTokenException e) {
 				if (req.requestMethod() != "GET") {
 					rollbackTransaction();
@@ -48,7 +48,7 @@ public class Router implements TransactionalOps, WithGlobalEntityManager {
 		
 		Spark.patch("/student", EstudianteController::modificarEstudiante);
 		
-		Spark.get("/student/assignments/", EstudianteController::getAsignaciones);
+		Spark.get("/student/assignments", EstudianteController::getAsignaciones);
 		
 		Spark.after((req, res) -> {
 			if(req.requestMethod() != "GET") {
