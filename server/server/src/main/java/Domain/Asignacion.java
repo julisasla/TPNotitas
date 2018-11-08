@@ -38,7 +38,7 @@ public class Asignacion {
 	private List<String> notas;	
 	
 	@JsonProperty("title")
-	String titulo;
+	String nombre;
 	
 	@JsonProperty("description")
 	public String getDescripcion() {
@@ -57,8 +57,8 @@ public class Asignacion {
 	public void setNotas(List<String> notas) {
 		this.notas = notas;
 	}
-	public Asignacion(String titulo, Tarea tarea) {
-		this.titulo = titulo;
+	public Asignacion(String nombre, Tarea tarea) {
+		this.nombre = nombre;
 		this.tarea = tarea;
 		this.notas = new ArrayList<>();
 	}

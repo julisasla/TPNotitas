@@ -17,13 +17,13 @@ public class EstudianteController {
 	private static String idSession = "Estudiante";
 	
 	private static Estudiante obtenerEstudianteSiExiste(Long id) {
-		Estudiante alumno = RepoEstudiante.getInstance().obtenerEstudiante(id);
+		Estudiante Estudiante = RepoEstudiante.getInstance().obtenerEstudiante(id);
 		
-		if (alumno == null) {
+		if (Estudiante == null) {
 			Spark.halt(401, "No es un alumno valido");
 		}
 		
-		return alumno;		
+		return Estudiante;		
 	}
 	
 	private static long sesionEstudiante(Request req) {
